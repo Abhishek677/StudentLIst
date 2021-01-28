@@ -2,7 +2,7 @@ package studentlist;
 
 /**
  *
- * @author HP
+ * @author HP jan 2021
  */
 public class PartTimeStudent extends Student {
     
