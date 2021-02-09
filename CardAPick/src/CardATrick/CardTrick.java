@@ -5,7 +5,8 @@ import CardATrick.Card.Suit;
 import CardATrick.Card.Value;
 import java.util.*;
 /**
- *
+ * Name: Abhishek Jassal
+ * Student ID:991605946
  * @author Abhishek
  */
 public class CardTrick {
@@ -34,22 +35,29 @@ public class CardTrick {
             magicHand[i] = c;
             
         }
+        
         // print them out for debugging purposes
         System.out.println("Here are the cards in the hand");
-        for (Card c : magicHand) {
+        for (Card c : magicHand)
+        {
             System.out.printf("%s of %s\n", c.getValue(), c.getSuit());
         }
         
+        
         // Now ask the user for a card
         System.out.println("\n"+"Pick a suit for your card");
-            for (int i = 0; i < cardSuits.length; i++) {
+        for (int i = 0; i < cardSuits.length; i++)
+        {
             System.out.println((i + 1) + ": " + cardSuits[i]);
         }
+            
+            
         System.out.print("\n"+"Enter a suit number for your card you want to Pick: ");
         int suitPosition = input.nextInt() - 1;
 
         
-        for (int i = 0; i < cardValues.length; i++) {
+        for (int i = 0; i < cardValues.length; i++)
+        {
             System.out.println((i + 1) + ": " + cardValues[i]);
         }
         
@@ -60,9 +68,10 @@ public class CardTrick {
         Card userGuess = new Card(cardSuits[suitPosition],cardValues[valuePosition]);
 
         boolean match = false;
-        for (Card c : magicHand) {
-            if (c.getValue() == userGuess.getValue()
-                    && c.getSuit()==(userGuess.getSuit())) {
+        for (Card c : magicHand)
+        {
+            if (c.getValue() == userGuess.getValue()&& c.getSuit()==(userGuess.getSuit()))
+            {
                 match = true;
                 break;
             }
