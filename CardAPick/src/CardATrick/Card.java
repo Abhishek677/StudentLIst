@@ -7,34 +7,32 @@ package CardATrick;
  * @author Abhishek 
  */
 public class Card {
+    
+    public enum Suit{HEARTS, CLUBS,SPADES,DIAMONDS,};
+    public enum Value{ACE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING};
 
-   private String suit;
-   private int value;
+   private Suit suit;
+   private Value value;
+
    
-   public static final String [] SUITS = {"Hearts", "Diamonds", "Spades", "Clubs"};
-   public static final String [] VALUES = {"Ace", "two", "three","four","five","six","seven","eight","nine", "ten","Jack","Queen","King"};
-
+    public Card(Suit suit, Value value) {
+        this.suit = suit;
+        this.value = value;
+    }
+    
     /**
      * This is getter method for suit
      * @return String
      */
-   
-    
-   
-    public Card(String suit, int value) {
-        this.suit = suit;
-        this.value = value;
-    }
-
-    public String getSuit() {
-        return suit;
+    public Suit getSuit() {
+        return this.suit;
     }
     
     /**
      * This setter method for suit
      * @param suit 
      */
-    public void setSuit(String suit) {
+    public void setSuit(Suit suit) {
         this.suit = suit;
     }
     
@@ -42,15 +40,15 @@ public class Card {
      * This is getter method value
      * @return int
      */
-    public int getValue() {
-        return value;
+    public Value getValue() {
+        return this.value;
     }
     
     /**
      * This is setter method for value
      * @param value 
      */
-    public void setValue(int value) {
+    public void setValue(Value value) {
         this.value = value;
     }
     

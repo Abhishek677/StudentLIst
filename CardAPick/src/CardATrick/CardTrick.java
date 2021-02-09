@@ -1,5 +1,8 @@
 
 package CardATrick;
+
+import CardATrick.Card.Suit;
+import CardATrick.Card.Value;
 import java.util.*;
 /**
  *
@@ -13,47 +16,53 @@ public class CardTrick {
          Scanner input = new Scanner(System.in);
          
          //this is random class to generate random number
-        Random random = new Random();
         
         Card[] magicHand = new Card[7];
         
-                for (int i=0; i<magicHand.length; i++)
+        Suit[] cardSuits = Suit.values();
+        Value[] cardValues = Value.values();
+        
+        // We'll use Random to generate random numbers
+        Random random = new Random();
+        
+        for (int i=0; i<magicHand.length; i++)
         {
-            int value = random.nextInt(13)+1;     // this genrates number between 1 to 13
-  
-            String suit=Card.SUITS[random.nextInt(4)]; // this generates number between 0 to 3
+            Suit suit = cardSuits[random.nextInt(cardSuits.length)];
+            Value value = cardValues[random.nextInt(cardValues.length)];
             
             Card c = new Card(suit,value);
+            magicHand[i] = c;
             
-            magicHand[i]=c;
         }
+        // print them out for debugging purposes
         System.out.println("Here are the cards in the hand");
         for (Card c : magicHand) {
-            System.out.printf("%d of %s\n", c.getValue(), c.getSuit());
+            System.out.printf("%s of %s\n", c.getValue(), c.getSuit());
         }
         
+        // Now ask the user for a card
         System.out.println("\n"+"Pick a suit for your card");
-        for (int i = 0; i < Card.SUITS.length; i++) {
-            System.out.println((i + 1) + ": " + Card.SUITS[i]);
+            for (int i = 0; i < cardSuits.length; i++) {
+            System.out.println((i + 1) + ": " + cardSuits[i]);
         }
-        
-        
         System.out.print("\n"+"Enter a suit number for your card you want to Pick: ");
-        int suit = input.nextInt();
+        int suitPosition = input.nextInt() - 1;
+
         
-        for (int i = 0; i < Card.VALUES.length; i++) {
-            System.out.println((i + 1) + ": " + Card.VALUES[i]);
+        for (int i = 0; i < cardValues.length; i++) {
+            System.out.println((i + 1) + ": " + cardValues[i]);
         }
         
         System.out.print("Enter a value (1 to 13): ");
-        int value = input.nextInt();
+        int valuePosition = input.nextInt() -1;
         
-        Card userGuess = new Card(Card.SUITS[suit - 1],value);
+        
+        Card userGuess = new Card(cardSuits[suitPosition],cardValues[valuePosition]);
 
         boolean match = false;
         for (Card c : magicHand) {
             if (c.getValue() == userGuess.getValue()
-                    && c.getSuit().equals(userGuess.getSuit())) {
+                    && c.getSuit()==(userGuess.getSuit())) {
                 match = true;
                 break;
             }
