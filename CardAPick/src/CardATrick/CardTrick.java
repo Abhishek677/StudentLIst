@@ -6,7 +6,7 @@
 package CardATrick;
 
 /**
- * @version 2 // add the version
+ *
  * @author Abhishek
  */
 public class CardTrick {
